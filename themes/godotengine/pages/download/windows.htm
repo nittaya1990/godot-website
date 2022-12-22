@@ -11,12 +11,12 @@ is_hidden = 0
 {##}
 {% set stable_version = include('version', {'key': 'identifier'}) %}
 {% put downloads %}
-  <div class="btn split download">
+  <div class="btn btn-version-download">
     <a href="https://downloads.tuxfamily.org/godotengine/{{stable_version}}/Godot_v{{stable_version}}-stable_win64.exe.zip">
       64-bit (x86_64)
     </a>
   </div>
-  <div class="btn split download">
+  <div class="btn btn-version-download">
     <a href="https://downloads.tuxfamily.org/godotengine/{{stable_version}}/Godot_v{{stable_version}}-stable_win32.exe.zip">
       32-bit (x86)
     </a>
@@ -24,12 +24,12 @@ is_hidden = 0
 {% endput %}
 
 {% put mono_downloads %}
-  <div class="btn split download">
+  <div class="btn btn-version-download">
     <a href="https://downloads.tuxfamily.org/godotengine/{{stable_version}}/mono/Godot_v{{stable_version}}-stable_mono_win64.zip">
       64-bit (x86_64)
     </a>
   </div>
-  <div class="btn split download">
+  <div class="btn btn-version-download">
     <a href="https://downloads.tuxfamily.org/godotengine/{{stable_version}}/mono/Godot_v{{stable_version}}-stable_mono_win32.zip">
       32-bit (x86)
     </a>
@@ -39,13 +39,8 @@ is_hidden = 0
 
 {% put instructions %}
   <p>You can also get Godot with <a href="https://scoop.sh/">Scoop</a>.</p>
-  <ul>
-    <li>
-      <pre><code>scoop bucket add extras</code></pre>
-    </li>
-    <li>
-      <pre><code>scoop install godot</code></pre>
-    </li>
-  </ul>
+  <pre><code>scoop bucket add extras
+scoop install godot</code></pre>
+
   <p>Windows executables are code-signed by <em>Prehensile Tales B.V.</em></p>
 {% endput %}

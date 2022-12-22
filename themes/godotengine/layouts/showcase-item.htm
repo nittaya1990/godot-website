@@ -2,7 +2,7 @@ description = "Showcase item layout"
 ==
 {##}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ getCurrentLocale() }}">
 {% partial "head" %}
 {% partial "header" %}
 
@@ -89,61 +89,61 @@ description = "Showcase item layout"
       {% placeholder description %}
       <div class="flex responsive" style="justify-content: center; margin-top: 2rem">
         {% if placeholder('link_steam') %}
-        <a href="{% placeholder link_steam %}" class="btn btn-default" style="margin: 0 0.5rem; white-space: nowrap">
+        <a href="{% placeholder link_steam %}" class="btn" style="margin: 0 0.5rem; white-space: nowrap">
           View on Steam
         </a>
         {% endif %}
 
         {% if placeholder('link_egs') %}
-        <a href="{% placeholder link_egs %}" class="btn btn-default" style="margin: 0 0.5rem; white-space: nowrap">
+        <a href="{% placeholder link_egs %}" class="btn" style="margin: 0 0.5rem; white-space: nowrap">
           View on Epic Games Store
         </a>
         {% endif %}
 
         {% if placeholder('link_gog') %}
-        <a href="{% placeholder link_gog %}" class="btn btn-default" style="margin: 0 0.5rem; white-space: nowrap">
+        <a href="{% placeholder link_gog %}" class="btn" style="margin: 0 0.5rem; white-space: nowrap">
           View on GOG
         </a>
         {% endif %}
 
         {% if placeholder('link_itch') %}
-        <a href="{% placeholder link_itch %}" class="btn btn-default" style="margin: 0 0.5rem; white-space: nowrap">
+        <a href="{% placeholder link_itch %}" class="btn" style="margin: 0 0.5rem; white-space: nowrap">
           View on itch.io
         </a>
         {% endif %}
 
         {% if placeholder('link_humble') %}
-        <a href="{% placeholder link_humble %}" class="btn btn-default" style="margin: 0 0.5rem; white-space: nowrap">
+        <a href="{% placeholder link_humble %}" class="btn" style="margin: 0 0.5rem; white-space: nowrap">
           View on Humble Store
         </a>
         {% endif %}
 
         {% if placeholder('link_play_store') %}
-        <a href="{% placeholder link_play_store %}" class="btn btn-default" style="margin: 0 0.5rem; white-space: nowrap">
+        <a href="{% placeholder link_play_store %}" class="btn" style="margin: 0 0.5rem; white-space: nowrap">
           View on Google Play
         </a>
         {% endif %}
 
         {% if placeholder('link_app_store') %}
-        <a href="{% placeholder link_app_store %}" class="btn btn-default" style="margin: 0 0.5rem; white-space: nowrap">
+        <a href="{% placeholder link_app_store %}" class="btn" style="margin: 0 0.5rem; white-space: nowrap">
           View on App Store
         </a>
         {% endif %}
 
         {% if placeholder('link_switch') %}
-        <a href="{% placeholder link_switch %}" class="btn btn-default" style="margin: 0 0.5rem; white-space: nowrap">
+        <a href="{% placeholder link_switch %}" class="btn" style="margin: 0 0.5rem; white-space: nowrap">
           View on Switch
         </a>
         {% endif %}
 
         {% if placeholder('link_github') %}
-        <a href="{% placeholder link_github %}" class="btn btn-default" style="margin: 0 0.5rem; white-space: nowrap">
+        <a href="{% placeholder link_github %}" class="btn" style="margin: 0 0.5rem; white-space: nowrap">
           View on GitHub
         </a>
         {% endif %}
 
         {% if placeholder('link_custom') %}
-        <a href="{% placeholder link_custom %}" class="btn btn-default" style="margin: 0 0.5rem; white-space: nowrap">
+        <a href="{% placeholder link_custom %}" class="btn" style="margin: 0 0.5rem; white-space: nowrap">
           View
         </a>
         {% endif %}
@@ -152,19 +152,19 @@ description = "Showcase item layout"
 
     <article class="showcase-video-image">
       {# Ensure the video iframe always displays with a 16:9 aspect ratio. #}
-      <div style="position: relative; width: 100%; padding-bottom: 56.25%">
+      <div class="card youtube" style="padding-bottom: 56.25%">
         <iframe
           src="https://www.youtube-nocookie.com/embed/{% placeholder youtube_embed_code %}"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; background-color: #000"
         >
         </iframe>
       </div>
 
       <a href="{{ ('assets/showcase/' ~ (placeholder('image') | trim)) | theme }}" class="lightbox" data-group="showcase">
         <img
+          class="rounded-lg"
           width="16"
           height="9"
           src="{{ ('assets/showcase/' ~ (placeholder('image') | trim)) | theme }}"

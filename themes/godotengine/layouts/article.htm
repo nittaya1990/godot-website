@@ -6,7 +6,7 @@ categoryPage = "article"
 ==
 {##}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ getCurrentLocale() }}">
 {% partial "head" %}
 {% partial "header" %}
 
@@ -48,6 +48,14 @@ categoryPage = "article"
     box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.15);
   }
 
+  figure {
+    margin: 0;
+  }
+
+  figure img {
+    margin: 0;
+  }
+
   article img, article video {
     max-width: 100%;
     height: auto;
@@ -55,10 +63,6 @@ categoryPage = "article"
     margin: auto;
     margin-top: 16px;
     margin-bottom: 16px;
-  }
-
-  article img:first-child, article video:first-child {
-    max-width: 85%;
   }
 
   article h1 {
@@ -72,6 +76,10 @@ categoryPage = "article"
   .author {
     margin-top: 0px;
     margin-bottom: 64px;
+  }
+
+  .tag.active {
+    filter: saturate(0.75);
   }
 
   @media screen and (min-width: 900px) {
@@ -101,13 +109,14 @@ categoryPage = "article"
   <article class="flex padded">
     <div class="content content-article">
       {# Lightbox elements and classes are added to all images via JavaScript. #}
-      <figure style="text-align: center">
+      <figure>
         <img
           src="{{ post.featured_images[0].path }}"
           title="{{ post.featured_images[0].title }}"
           width="{{ post.featured_images[0].width }}"
           height="{{ post.featured_images[0].height }}"
           alt="{{ post.featured_images[0].title }} {{ post.featured_images[0].description }}"
+          class="rounded-lg"
           style="width: 100%; height: auto"
         />
         <figcaption style="opacity: 0.8; line-height: 1.5">
@@ -127,6 +136,12 @@ categoryPage = "article"
           By: {{ post.user.full_name }}
           <span class="date"> {{ post.published_at|date('j F Y') }}</span>
         </h4>
+
+        <div class="tags">
+          {% for category in post.categories %}
+            <a href="/news/{{ category.slug }}/{{ blogPosts.posts.currentPage }}" title="{{ category.description }}"><div class="tag active">{{ category.name }}</div></a>
+          {% endfor %}
+        </div>
       </div>
 
       {{ post.content_html|raw }}
